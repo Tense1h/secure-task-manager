@@ -1,0 +1,87 @@
+:root {
+  --ink: #1f2933;
+  --muted: #6b7785;
+  --paper: #f5f7fa;
+  --card: #ffffff;
+  --line: #d5dce4;
+  --accent: #0b5fa5;
+  --done: #2f855a;
+  --danger: #b83232;
+}
+ 
+* { box-sizing: border-box; }
+ 
+body {
+  margin: 0;
+  padding: 2rem 1rem;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+ 
+.app {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+ 
+h1 { margin: 0 0 1.25rem; font-size: 1.6rem; }
+ 
+.controls { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+ 
+input[type="text"] {
+  flex: 1 1 200px;
+  padding: 0.55rem 0.7rem;
+  font: inherit;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+ 
+button {
+  padding: 0.5rem 0.85rem;
+  font: inherit;
+  color: #fff;
+  background: var(--accent);
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+button:hover { filter: brightness(1.1); }
+button.secondary { background: var(--muted); }
+ 
+input:focus-visible, button:focus-visible {
+  outline: 3px solid #f2b705;
+  outline-offset: 2px;
+}
+ 
+.message { min-height: 1.4rem; margin: 0.5rem 0; color: var(--danger); font-weight: 600; }
+ 
+#taskList { list-style: none; margin: 0; padding: 0; }
+ 
+.task-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--line);
+}
+ 
+.task-text, .edit-input { flex: 1 1 180px; overflow-wrap: anywhere; }
+.edit-input { padding: 0.4rem 0.6rem; font: inherit; border: 1px solid var(--accent); border-radius: 6px; }
+ 
+.task-item.completed .task-text { text-decoration: line-through; color: var(--muted); }
+.task-item.completed { border-left: 4px solid var(--done); padding-left: 0.6rem; }
+ 
+.complete-btn { background: var(--done); }
+.edit-btn { background: var(--accent); }
+.remove-btn { background: var(--danger); }
+ 
+.summary { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.25rem; }
+.summary p { margin: 0; color: var(--muted); }
+.summary strong { color: var(--ink); }
+ 
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
